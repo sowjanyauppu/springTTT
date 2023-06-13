@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+ <bean id="employee1" class="com.bitlabs.EmployeeTTT.Employee">
+        <property name="id" value="1" />
+        <property name="name" value="John" />
+        <property name="designation" value="Manager" />
+    </bean>
+<bean id="employee2" class="com.bitlabs.EmployeeTTT.Employee">
+<property name="id" value="2"/>
+ <property name="name" value="John smith" />
+ <property name="designation" value="developer" />
+</bean>
+<bean id="employee3" class="com.bitlabs.EmployeeTTT.Employee">
+<property name="id" value="3"/>
+ <property name="name" value="dinesh pandey" />
+ <property name="designation" value="Analyst" />
+</bean>
+<bean id="employee4" class="com.bitlabs.EmployeeTTT.Employee">
+<property name="id" value="4"/>
+ <property name="name" value="Johnson" />
+ <property name="designation" value="designer" />
+</bean>
+ 
+ <bean id="employeeservices" class="com.bitlabs.EmployeeTTT.EmployeeServices">
+ <property name="employees">
+            <list>
+                <ref bean="employee1" />
+                <ref bean="employee2" />
+                <ref bean="employee3" />
+                <ref bean="employee4" />
+            </list>
+        </property>
+ </bean>
+ </beans>
