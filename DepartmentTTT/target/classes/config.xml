@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+    <!-- Define Department beans -->
+    <bean id="department1" class="com.bitlabs.DepartmentTTT.Department">
+        <property name="id" value="1" />
+        <property name="name" value="sales" />
+        <property name="employees">
+            <list>
+                <ref bean="employee1" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="department2" class="com.bitlabs.DepartmentTTT.Department">
+        <property name="id" value="2" />
+        <property name="name" value="Finance" />
+        <property name="employees">
+            <list>
+                <ref bean="employee2" />
+                <ref bean="employee3" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="department3" class="com.bitlabs.DepartmentTTT.Department">
+        <property name="id" value="3" />
+        <property name="name" value="Technical" />
+        <property name="employees">
+            <list>
+                <ref bean="employee4" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- Define Employee beans -->
+    <bean id="employee1" class="com.bitlabs.DepartmentTTT.Employee">
+        <property name="id" value="123" />
+        <property name="name" value="John" />
+        <property name="department" ref="department1" />
+    </bean>
+
+    <bean id="employee2" class="com.bitlabs.DepartmentTTT.Employee">
+        <property name="id" value="234" />
+        <property name="name" value="williams" />
+        <property name="department" ref="department2" />
+    </bean>
+
+    <bean id="employee3" class="com.bitlabs.DepartmentTTT.Employee">
+        <property name="id" value="334" />
+        <property name="name" value="james walker" />
+        <property name="department" ref="department1" />
+    </bean>
+
+    <bean id="employee4" class="com.bitlabs.DepartmentTTT.Employee">
+        <property name="id" value="456" />
+        <property name="name" value="Robert" />
+        <property name="department" ref="department3" />
+    </bean>
+<bean id="newEmployee" class="com.bitlabs.DepartmentTTT.Employee">
+    <property name="id" value="8" />
+    <property name="name" value="william smith" />
+</bean>
+    
+    <!-- Define DepartmentService bean -->
+    <bean id="departmentService" class="com.bitlabs.DepartmentTTT.DepartmentService">
+        <property name="departments">
+            <list>
+                <ref bean="department1" />
+                <ref bean="department2" />
+                <ref bean="department3" />
+            </list>
+        </property>
+        <property name="newEmployee" ref="newEmployee" />
+    </bean>
+</beans>
